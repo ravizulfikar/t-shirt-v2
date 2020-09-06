@@ -112,7 +112,7 @@ return [
 
     // Subheader
     'subheader' => [
-        'display' => true,
+        'display' => false,
         'displayDesc' => true,
         'layout' => 'subheader-v1',
         'fixed' => true,
@@ -168,49 +168,49 @@ return [
     // Footer
     'footer' => [
         'width' => 'fluid', // fluid, fixed
-        'fixed' => false
+        'fixed' => true
     ],
 
     // Extras
     'extras' => [
 
         // Search
-        'search' => [
-            'display' => true,
-            'layout' => 'dropdown', // offcanvas, dropdown
-            'offcanvas' => [
-                'direction' => 'right'
-            ],
-        ],
+        // 'search' => [
+        //     'display' => true,
+        //     'layout' => 'dropdown', // offcanvas, dropdown
+        //     'offcanvas' => [
+        //         'direction' => 'right'
+        //     ],
+        // ],
 
         // Notifications
-        'notifications' => [
-            'display' => true,
-            'layout' => 'dropdown', // offcanvas, dropdown
-            'dropdown' => [
-                'style' => 'dark' // light|dark
-            ],
-            'offcanvas' => [
-                'direction' => 'right'
-            ]
-        ],
+        // 'notifications' => [
+        //     'display' => true,
+        //     'layout' => 'dropdown', // offcanvas, dropdown
+        //     'dropdown' => [
+        //         'style' => 'dark' // light|dark
+        //     ],
+        //     'offcanvas' => [
+        //         'direction' => 'right'
+        //     ]
+        // ],
 
         // Quick Actions
-        'quick-actions' => [
-            'display' => true,
-            'layout' => 'dropdown', // offcanvas, dropdown
-            'dropdown' => [
-                'style' => 'dark' // light|dark
-            ],
-            'offcanvas' => [
-                'direction' => 'right'
-            ]
-        ],
+        // 'quick-actions' => [
+        //     'display' => true,
+        //     'layout' => 'dropdown', // offcanvas, dropdown
+        //     'dropdown' => [
+        //         'style' => 'dark' // light|dark
+        //     ],
+        //     'offcanvas' => [
+        //         'direction' => 'right'
+        //     ]
+        // ],
 
         // User
         'user' => [
             'display' => true,
-            'layout' => 'offcanvas', // offcanvas, dropdown
+            'layout' => 'dropdown', // offcanvas, dropdown
             'dropdown' => [
                 'style' => 'dark' // light|dark
             ],
@@ -220,40 +220,40 @@ return [
         ],
 
         // Languages
-        'languages' => [
-            'display' => true
-        ],
+        // 'languages' => [
+        //     'display' => true
+        // ],
 
         // Cart
-        'cart' => [
-            'display' => true,
-            'dropdown' => [
-                'style' => 'dark' // light|dark
-            ]
-        ],
+        // 'cart' => [
+        //     'display' => true,
+        //     'dropdown' => [
+        //         'style' => 'dark' // light|dark
+        //     ]
+        // ],
 
         // Quick Panel
-        'quick-panel' => [
-            'display' => true,
-            'offcanvas' => [
-                'direction' => 'right'
-            ]
-        ],
+        // 'quick-panel' => [
+        //     'display' => true,
+        //     'offcanvas' => [
+        //         'direction' => 'right'
+        //     ]
+        // ],
 
-        // Chat
-        'chat' => [
-            'display' => true,
-        ],
+        // // Chat
+        // 'chat' => [
+        //     'display' => true,
+        // ],
 
-        // Page Toolbar
-        'toolbar' => [
-            'display' => true
-        ],
+        // // Page Toolbar
+        // 'toolbar' => [
+        //     'display' => true
+        // ],
 
-        // Scrolltop
-        'scrolltop' => [
-            'display' => true
-        ]
+        // // Scrolltop
+        // 'scrolltop' => [
+        //     'display' => true
+        // ]
     ],
 
     // Demo Assets
