@@ -7,7 +7,7 @@
         </div>
 
         {{-- Text --}}
-        <div class="text-dark m-0 flex-grow-1 mr-3 font-size-h5">Sean Stone</div>
+        <div class="text-dark m-0 flex-grow-1 mr-3 font-size-h5">{{ Auth::user()->name }}</div>
         <span class="label label-light-success label-lg font-weight-bold label-inline">3 messages</span>
     </div>
     <div class="separator separator-solid"></div>
@@ -21,11 +21,51 @@
             </div>
 
             {{-- Text --}}
-            <div class="text-white m-0 flex-grow-1 mr-3 font-size-h5">Sean Stone</div>
+            <div class="text-white m-0 flex-grow-1 mr-3 font-size-h5">
+                {{-- @guest
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                    </li>
+                    @if (Route::has('register'))
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                        </li>
+                    @endif
+                @else
+                    <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            {{ Auth::user()->name }}
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        </div>
+                    </li>
+                @endguest --}}
+                @guest
+                    Tamu
+                @else
+                    {{ Auth::user()->name }}
+                @endguest
+                
+            </div>
         </div>
         <span class="label label-success label-lg font-weight-bold label-inline">
-            <a href="#" class="font-weight-bold text-white">Sign Out</a>
+            <a href="{{ route('logout') }}" class="font-weight-bold text-white"
+            onclick="event.preventDefault();document.getElementById('logout-form').submit();">Sign Out</a>
         </span>
+
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+            @csrf
+        </form>
         {{-- <span class="label label-success label-lg font-weight-bold label-inline">3 messages</span> --}}
     </div>
 @endif

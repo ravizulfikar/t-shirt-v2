@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/dashboard', 'PagesController@index');
+Route::get('/home', 'PagesController@index');
 // Demo routes
 Route::get('/datatables', 'PagesController@datatables');
 Route::get('/ktdatatables', 'PagesController@ktDatatables');
@@ -29,6 +29,16 @@ Route::get('/icons/svg', 'PagesController@svg');
 Route::get('/quick-search', 'PagesController@quickSearch')->name('quick-search');
 
 
+Auth::routes();
+// Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/', function() { return view('beranda'); })->name('beranda');
+Route::get('/product', function() { return view('product'); })->name('products');
+Route::get('/costum', function() { return view('costum'); })->name('costums');
+
 
 //Order Pages
-Route::get('/order', 'OrderController@index');
+Route::get('/order', 'OrderController@index')->name('orders');
+
+//Clothes Type Page
+Route::get('/clothes', 'ClothesController@index')->name('clothes');

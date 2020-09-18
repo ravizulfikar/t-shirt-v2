@@ -8,7 +8,7 @@ return [
             'title' => 'Dashboard',
             'root' => true,
             'icon' => 'media/svg/icons/Design/Layers.svg', // or can be 'flaticon-home' or any flaticon-*
-            'page' => '/',
+            'page' => '/home',
             'new-tab' => false,
         ],
 
@@ -21,20 +21,15 @@ return [
         ],
 
         [
-            'title' => 'Data Catalogs',
+            'title' => 'Master Customs',
             'icon' => 'media/svg/icons/Shopping/Bag1.svg',
             'bullet' => 'dot',
             'root' => true,
             'submenu' => [
                 [
-                    'title' => 'Brands',
+                    'title' => 'Type T-Shirt',
                     'bullet' => 'dot',
-                    'page' => '/order',
-                ],
-                [
-                    'title' => 'Sizes',
-                    'bullet' => 'dot',
-                    'page' => '/order',
+                    'page' => '/clothes',
                 ],
                 [
                     'title' => 'Colors',
@@ -42,10 +37,15 @@ return [
                     'page' => '/order',
                 ],
                 [
-                    'title' => 'Prices',
+                    'title' => 'Images Template',
                     'bullet' => 'dot',
                     'page' => '/order',
                 ],
+                // [
+                //     'title' => 'Prices',
+                //     'bullet' => 'dot',
+                //     'page' => '/order',
+                // ],
             ]
         ],
 
