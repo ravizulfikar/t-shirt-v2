@@ -42,3 +42,13 @@ Route::get('/order', 'OrderController@index')->name('orders');
 
 //Clothes Type Page
 Route::get('/clothes', 'ClothesController@index')->name('clothes');
+Route::post('/clothes/store', 'ClothesController@store')->name('store_clothes');
+
+//Colors Page
+Route::get('/colors', 'ColorsController@index')->name('colors');
+
+//Template Page
+Route::get('/templates', 'TemplatesController@index')->name('templates');
+
+//Catalogs Page
+Route::get('/catalogs', 'CatalogsController@index')->name('catalogs');

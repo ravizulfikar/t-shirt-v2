@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class ColorsController extends Controller
+class CatalogsController extends Controller
 {
     public function __construct()
     {
@@ -16,6 +16,6 @@ class ColorsController extends Controller
         $page_title = 'Type of CLothes';
         $page_description = '| Type of Clothes in your store';
 
-        return view('pages.colors.main', compact('page_title', 'page_description'));
+        return view('pages.catalogs.main', compact('page_title', 'page_description'));
     }
 }

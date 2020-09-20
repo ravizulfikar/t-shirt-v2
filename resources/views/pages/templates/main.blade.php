@@ -7,7 +7,7 @@
     <div class="card card-custom">
         <div class="card-header flex-wrap border-0 pt-6 pb-0">
             <div class="card-title">
-                <h3 class="card-label">Type Clothes
+                <h3 class="card-label">Image Templates
                     {{-- <div class="text-muted pt-2 font-size-sm">-</div> --}}
                 </h3>
             </div>
@@ -78,90 +78,69 @@
                     <!--end::Dropdown Menu-->
                 </div>
                 <!--end::Dropdown-->
-                <!--begin::Button-->
+               <!--begin::Button-->
 
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
-                    <span class="svg-icon svg-icon-md">
-                        <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Flatten.svg-->
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                <rect x="0" y="0" width="24" height="24"/>
-                                <circle fill="#000000" cx="9" cy="15" r="6"/>
-                                <path d="M8.8012943,7.00241953 C9.83837775,5.20768121 11.7781543,4 14,4 C17.3137085,4 20,6.6862915 20,10 C20,12.2218457 18.7923188,14.1616223 16.9975805,15.1987057 C16.9991904,15.1326658 17,15.0664274 17,15 C17,10.581722 13.418278,7 9,7 C8.93357256,7 8.86733422,7.00080962 8.8012943,7.00241953 Z" fill="#000000" opacity="0.3"/>
-                            </g>
-                        </svg>
-                        <!--end::Svg Icon-->
-                    </span>
-                    New Record
-                </button>
-                <!--end::Button-->
-                <!-- Modal-->
-                <div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Tambah Jenis Baju</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <i aria-hidden="true" class="ki ki-close"></i>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-								<form id="my-form" method="POST" enctype="multipart/form-data" action="{{Route('store_clothes')}}">
-									@csrf
-									
-									<div class="form-group" >
-										<label>Nama Tipe Baju</label>
-										<input type="text" class="form-control" name="name_type" required/>
+			   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
+				<span class="svg-icon svg-icon-md">
+					<!--begin::Svg Icon | path:assets/media/svg/icons/Design/Flatten.svg-->
+					<svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+						<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+							<rect x="0" y="0" width="24" height="24"/>
+							<circle fill="#000000" cx="9" cy="15" r="6"/>
+							<path d="M8.8012943,7.00241953 C9.83837775,5.20768121 11.7781543,4 14,4 C17.3137085,4 20,6.6862915 20,10 C20,12.2218457 18.7923188,14.1616223 16.9975805,15.1987057 C16.9991904,15.1326658 17,15.0664274 17,15 C17,10.581722 13.418278,7 9,7 C8.93357256,7 8.86733422,7.00080962 8.8012943,7.00241953 Z" fill="#000000" opacity="0.3"/>
+						</g>
+					</svg>
+					<!--end::Svg Icon-->
+				</span>
+				New Record
+			</button>
+			<!--end::Button-->
+			<!-- Modal-->
+			<div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLabel">Tambah Template Gambar</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<i aria-hidden="true" class="ki ki-close"></i>
+							</button>
+						</div>
+						<div class="modal-body">
+							<form id="my-form" method="post" action="">
+								<div class="form-group" >
+									<label>Nama</label>
+									<input type="text" class="form-control" name="type"/>
+								</div>
+								
+
+								<div class="form-group">
+									<label>Gambar</label>
+									<div></div>
+									<div class="image-input image-input-outline" id="kt_image_1">
+										<div class="image-input-wrapper" style="background-image: url(media/users/blank.png)"></div>
+										
+										<label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="Change avatar">
+											<i class="fa fa-pen icon-sm text-muted"></i>
+											<input type="file" name="img_temp" accept=".png, .jpg, .jpeg"/>
+											<input type="hidden" name="img_temp_remove"/>
+										</label>
+										
+										<span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="cancel" data-toggle="tooltip" title="Cancel avatar">
+											<i class="ki ki-bold-close icon-xs text-muted"></i>
+										</span>
 									</div>
+								</div>
 									
-
-									<div class="form-group row ">
-										<div class="col-lg-6 text-center">
-											<label>Tampilan Depan Baju</label>
-											<div></div>
-											<div class="image-input image-input-outline" id="kt_image_1">
-												<div class="image-input-wrapper" style="background-image: url(media/users/blank.png)"></div>
-											   
-												<label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="Change avatar">
-												 <i class="fa fa-pen icon-sm text-muted"></i>
-												 <input type="file" name="img_front" accept=".png, .jpg, .jpeg" required/>
-												 <input type="hidden" name="img_front_remove"/>
-												</label>
-											   
-												<span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="cancel" data-toggle="tooltip" title="Cancel avatar">
-												 <i class="ki ki-bold-close icon-xs text-muted"></i>
-												</span>
-											</div>
-										</div>
-										<div class="col-lg-6 text-center">
-											<label>Tampilan Belakang Baju</label>
-											<div></div>
-											<div class="image-input image-input-outline" id="kt_image_2">
-												<div class="image-input-wrapper" style="background-image: url(media/users/blank.png)"></div>
-											   
-												<label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="Change avatar">
-												 <i class="fa fa-pen icon-sm text-muted"></i>
-												 <input type="file" name="img_back" accept=".png, .jpg, .jpeg"/>
-												 <input type="hidden" name="img_back_remove"/>
-												</label>
-											   
-												<span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="cancel" data-toggle="tooltip" title="Cancel avatar">
-												 <i class="ki ki-bold-close icon-xs text-muted"></i>
-												</span>
-											</div>
-										</div>
-									</div>
-                                </form>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-light-primary font-weight-bold" data-dismiss="modal">Close</button>
-                                <button type="submit" form="my-form" class="btn btn-primary font-weight-bold">Save changes</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--end::Modal-->
-
+							</form>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-light-primary font-weight-bold" data-dismiss="modal">Close</button>
+							<button type="submit" form="my-form" class="btn btn-primary font-weight-bold">Save changes</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--end::Modal-->
             </div>
         </div>
         <div class="card-body">
@@ -217,8 +196,8 @@
             <table class="datatable datatable-bordered datatable-head-custom" id="kt_datatable">
                 <thead>
                 <tr>
-                    <th title="Field #1">Nama Jenis Baju</th>
-                    <th title="Field #2">Gambar Model</th>
+                    <th title="Field #1">Nama</th>
+                    <th title="Field #2">Images Template</th>
                     <th title="Field #3">Aksi</th>
                     {{-- <th title="Field #4">Color</th>
                     <th title="Field #5">Deposit Paid</th>
@@ -228,24 +207,17 @@
                 </tr>
                 </thead>
                 <tbody>
-					@foreach($data as $row)
-					<tr>
-						<td>{!! $row->name !!}</td>
-						<td>
-							<div class="image-input image-input-outline" id="kt_image_2">
-								<div class="image-input-wrapper" style="background-image: url(media/upload/shirt/{{$row->image}}_front.png)"></div>
-							</div>
-							&nbsp;
-							<div class="image-input image-input-outline" id="kt_image_2">
-								<div class="image-input-wrapper" style="background-image: url(media/upload/shirt/{{$row->image}}_back.png)"></div>
-							</div>
-						</td>
-						<td>
-							<a href="#" class="btn btn-primary"><i class="fa fa-edit"></i></a>
-							<a href="#" class="btn btn-danger"><i class="fa fa-trash"></i></a>
-						</td>
-					</tr>
-					@endforeach
+                {{-- <tr>
+                    <td>0006-3629</td>
+                    <td>Land Rover</td>
+                    <td>Range Rover</td>
+                    <td>Orange</td>
+                    <td>$22672.60</td>
+                    <td>2016-11-28</td>
+                    <td align="right">3</td>
+                    <td align="right">3</td>
+                </tr> --}}
+                
                 </tbody>
             </table>
             <!--end: Datatable-->
@@ -262,9 +234,7 @@
 {{-- Scripts Section --}}
 @section('scripts')
 	<script src="{{ asset('js/pages/crud/ktdatatable/base/html-table.js') }}" type="text/javascript"></script>
-	
 	<script>
 		var avatar1 = new KTImageInput('kt_image_1');
-		var avatar2 = new KTImageInput('kt_image_2');
 	</script>
 @endsection

@@ -34,12 +34,12 @@ return [
                 [
                     'title' => 'Colors',
                     'bullet' => 'dot',
-                    'page' => '/order',
+                    'page' => '/colors',
                 ],
                 [
                     'title' => 'Images Template',
                     'bullet' => 'dot',
-                    'page' => '/order',
+                    'page' => '/templates',
                 ],
                 // [
                 //     'title' => 'Prices',
@@ -53,7 +53,7 @@ return [
             'title' => 'Catalogs',
             'root' => true,
             'icon' => 'media/svg/icons/Clothes/T-Shirt.svg', // or can be 'flaticon-home' or any flaticon-*
-            'page' => '/order',
+            'page' => '/catalogs',
             'new-tab' => false,
         ],
 

@@ -59,7 +59,9 @@
     </div>
   </div>
 
-  <div class="site-section">
+  <br>
+
+  {{-- <div class="site-section">
     <div class="container">
       <div class="col-md-12">
        <section id="process">
@@ -154,7 +156,7 @@
        </section>
       </div>
     </div>
-  </div>
+  </div> --}}
 
 
   <div class="site-selection">

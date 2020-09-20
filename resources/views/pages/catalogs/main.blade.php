@@ -7,7 +7,7 @@
     <div class="card card-custom">
         <div class="card-header flex-wrap border-0 pt-6 pb-0">
             <div class="card-title">
-                <h3 class="card-label">Type Clothes
+                <h3 class="card-label">Catalogs
                     {{-- <div class="text-muted pt-2 font-size-sm">-</div> --}}
                 </h3>
             </div>
@@ -105,63 +105,15 @@
                                     <i aria-hidden="true" class="ki ki-close"></i>
                                 </button>
                             </div>
-                            <div class="modal-body">
-								<form id="my-form" method="POST" enctype="multipart/form-data" action="{{Route('store_clothes')}}">
-									@csrf
-									
-									<div class="form-group" >
-										<label>Nama Tipe Baju</label>
-										<input type="text" class="form-control" name="name_type" required/>
-									</div>
-									
-
-									<div class="form-group row ">
-										<div class="col-lg-6 text-center">
-											<label>Tampilan Depan Baju</label>
-											<div></div>
-											<div class="image-input image-input-outline" id="kt_image_1">
-												<div class="image-input-wrapper" style="background-image: url(media/users/blank.png)"></div>
-											   
-												<label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="Change avatar">
-												 <i class="fa fa-pen icon-sm text-muted"></i>
-												 <input type="file" name="img_front" accept=".png, .jpg, .jpeg" required/>
-												 <input type="hidden" name="img_front_remove"/>
-												</label>
-											   
-												<span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="cancel" data-toggle="tooltip" title="Cancel avatar">
-												 <i class="ki ki-bold-close icon-xs text-muted"></i>
-												</span>
-											</div>
-										</div>
-										<div class="col-lg-6 text-center">
-											<label>Tampilan Belakang Baju</label>
-											<div></div>
-											<div class="image-input image-input-outline" id="kt_image_2">
-												<div class="image-input-wrapper" style="background-image: url(media/users/blank.png)"></div>
-											   
-												<label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="Change avatar">
-												 <i class="fa fa-pen icon-sm text-muted"></i>
-												 <input type="file" name="img_back" accept=".png, .jpg, .jpeg"/>
-												 <input type="hidden" name="img_back_remove"/>
-												</label>
-											   
-												<span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="cancel" data-toggle="tooltip" title="Cancel avatar">
-												 <i class="ki ki-bold-close icon-xs text-muted"></i>
-												</span>
-											</div>
-										</div>
-									</div>
-                                </form>
-                            </div>
+                            <div class="modal-body">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-light-primary font-weight-bold" data-dismiss="modal">Close</button>
-                                <button type="submit" form="my-form" class="btn btn-primary font-weight-bold">Save changes</button>
+                                <button type="button" class="btn btn-primary font-weight-bold">Save changes</button>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!--end::Modal-->
-
             </div>
         </div>
         <div class="card-body">
@@ -228,24 +180,17 @@
                 </tr>
                 </thead>
                 <tbody>
-					@foreach($data as $row)
-					<tr>
-						<td>{!! $row->name !!}</td>
-						<td>
-							<div class="image-input image-input-outline" id="kt_image_2">
-								<div class="image-input-wrapper" style="background-image: url(media/upload/shirt/{{$row->image}}_front.png)"></div>
-							</div>
-							&nbsp;
-							<div class="image-input image-input-outline" id="kt_image_2">
-								<div class="image-input-wrapper" style="background-image: url(media/upload/shirt/{{$row->image}}_back.png)"></div>
-							</div>
-						</td>
-						<td>
-							<a href="#" class="btn btn-primary"><i class="fa fa-edit"></i></a>
-							<a href="#" class="btn btn-danger"><i class="fa fa-trash"></i></a>
-						</td>
-					</tr>
-					@endforeach
+                {{-- <tr>
+                    <td>0006-3629</td>
+                    <td>Land Rover</td>
+                    <td>Range Rover</td>
+                    <td>Orange</td>
+                    <td>$22672.60</td>
+                    <td>2016-11-28</td>
+                    <td align="right">3</td>
+                    <td align="right">3</td>
+                </tr> --}}
+                
                 </tbody>
             </table>
             <!--end: Datatable-->
@@ -261,10 +206,5 @@
 
 {{-- Scripts Section --}}
 @section('scripts')
-	<script src="{{ asset('js/pages/crud/ktdatatable/base/html-table.js') }}" type="text/javascript"></script>
-	
-	<script>
-		var avatar1 = new KTImageInput('kt_image_1');
-		var avatar2 = new KTImageInput('kt_image_2');
-	</script>
+    <script src="{{ asset('js/pages/crud/ktdatatable/base/html-table.js') }}" type="text/javascript"></script>
 @endsection
