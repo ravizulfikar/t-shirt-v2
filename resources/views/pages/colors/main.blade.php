@@ -12,7 +12,7 @@
                 </h3>
             </div>
             <div class="card-toolbar">
-                <!--begin::Dropdown-->
+                {{-- <!--begin::Dropdown-->
                 <div class="dropdown dropdown-inline mr-2">
                     <button type="button" class="btn btn-light-primary font-weight-bolder dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 <span class="svg-icon svg-icon-md">
@@ -77,7 +77,7 @@
                     </div>
                     <!--end::Dropdown Menu-->
                 </div>
-                <!--end::Dropdown-->
+                <!--end::Dropdown--> --}}
                 <!--begin::Button-->
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
                     <span class="svg-icon svg-icon-md">
@@ -105,10 +105,11 @@
                                 </button>
                             </div>
                             <div class="modal-body">
-								<form id="my-form" method="post" action="">
+								<form id="my-form" method="post" action="{{route('store_colors')}}">
+									@csrf
                                     <div class="form-group">
 										<label>Warna</label>
-										<input type="text" class="form-control" name="warna"/>
+										<input type="text" class="form-control" name="name_colors"/>
 									</div>
 
 									<div class="form-group">
@@ -192,6 +193,56 @@
                 </tr>
                 </thead>
                 <tbody>
+					@foreach($data as $row)
+					<tr>
+						<td>{{$row->name}}</td>
+						<td>
+							<input class="form-control" type="color" name="hexcode" value="{{$row->color}}" disabled/>
+							{{-- <div style="background-color: #ff00ff;"></div> --}}
+						</td>
+						<td>
+							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#EditData-{{$row->id}}">
+								<i class="fa fa-edit"></i>
+							</button>
+
+							<a href="{{Route('delete_colors', $row->id)}}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+						</td>
+					</tr>
+
+					<!-- Modal-->
+					<div class="modal fade" id="EditData-{{$row->id}}" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title" id="exampleModalLabel">Tambah Warna Varian Baju</h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<i aria-hidden="true" class="ki ki-close"></i>
+									</button>
+								</div>
+								<div class="modal-body">
+									<form id="my-form" method="post" action="{{Route('update_colors', $row->id)}}">
+										@csrf
+										<div class="form-group">
+											<label>Warna</label>
+											<input type="text" class="form-control" name="name_colors" value="{{$row->name}}"/>
+										</div>
+	
+										<div class="form-group">
+											<label >Color</label>
+											<input class="form-control" type="color" name="hexcode" value="{{$row->color}}" id="example-color-input"/>
+										</div>
+
+										<button type="submit" name="button" class="btn btn-success btn-block">Update</button>
+									</form>
+								</div>
+								{{-- <div class="modal-footer">
+									<button type="button" class="btn btn-light-primary font-weight-bold" data-dismiss="modal">Close</button>
+									<button type="submit" form="my-form" class="btn btn-primary font-weight-bold">Save changes</button>
+								</div> --}}
+							</div>
+						</div>
+					</div>
+					@endforeach
                 {{-- <tr>
                     <td>0006-3629</td>
                     <td>Land Rover</td>

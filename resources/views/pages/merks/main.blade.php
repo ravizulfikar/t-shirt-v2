@@ -7,7 +7,7 @@
     <div class="card card-custom">
         <div class="card-header flex-wrap border-0 pt-6 pb-0">
             <div class="card-title">
-                <h3 class="card-label">Type Clothes
+                <h3 class="card-label">Merks
                     {{-- <div class="text-muted pt-2 font-size-sm">-</div> --}}
                 </h3>
             </div>
@@ -77,9 +77,8 @@
                     </div>
                     <!--end::Dropdown Menu-->
                 </div>
-                <!--end::Dropdown-->
-                <!--begin::Button--> --}}
-
+                <!--end::Dropdown--> --}}
+                <!--begin::Button-->
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
                     <span class="svg-icon svg-icon-md">
                         <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Flatten.svg-->
@@ -100,59 +99,20 @@
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Tambah Jenis Baju</h5>
+                                <h5 class="modal-title" id="exampleModalLabel">Tambah Warna Varian Baju</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <i aria-hidden="true" class="ki ki-close"></i>
                                 </button>
                             </div>
                             <div class="modal-body">
-								<form id="my-form" method="POST" enctype="multipart/form-data" action="{{Route('store_clothes')}}">
+								<form id="my-form" method="post" action="{{route('store_merks')}}">
 									@csrf
-									
-									<div class="form-group" >
-										<label>Nama Tipe Baju</label>
-										<input type="text" class="form-control" name="name_type" required/>
-									</div>
-									
-
-									<div class="form-group row ">
-										<div class="col-lg-6 text-center">
-											<label>Tampilan Depan Baju</label>
-											<div></div>
-											<div class="image-input image-input-outline" id="kt_image_1">
-												<div class="image-input-wrapper" style="background-image: url(media/users/blank.png)"></div>
-											   
-												<label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="Change avatar">
-												 <i class="fa fa-pen icon-sm text-muted"></i>
-												 <input type="file" name="img_front" accept=".png, .jpg, .jpeg" required/>
-												 <input type="hidden" name="img_front_remove"/>
-												</label>
-											   
-												<span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="cancel" data-toggle="tooltip" title="Cancel avatar">
-												 <i class="ki ki-bold-close icon-xs text-muted"></i>
-												</span>
-											</div>
-										</div>
-										<div class="col-lg-6 text-center">
-											<label>Tampilan Belakang Baju</label>
-											<div></div>
-											<div class="image-input image-input-outline" id="kt_image_2">
-												<div class="image-input-wrapper" style="background-image: url(media/users/blank.png)"></div>
-											   
-												<label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="Change avatar">
-												 <i class="fa fa-pen icon-sm text-muted"></i>
-												 <input type="file" name="img_back" accept=".png, .jpg, .jpeg"/>
-												 <input type="hidden" name="img_back_remove"/>
-												</label>
-											   
-												<span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="cancel" data-toggle="tooltip" title="Cancel avatar">
-												 <i class="ki ki-bold-close icon-xs text-muted"></i>
-												</span>
-											</div>
-										</div>
+                                    <div class="form-group">
+										<label>Nama Merk</label>
+										<input type="text" class="form-control" name="name_merks"/>
 									</div>
                                 </form>
-                            </div>
+							</div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-light-primary font-weight-bold" data-dismiss="modal">Close</button>
                                 <button type="submit" form="my-form" class="btn btn-primary font-weight-bold">Save changes</button>
@@ -161,7 +121,7 @@
                     </div>
                 </div>
                 <!--end::Modal-->
-
+                <!--end::Button-->
             </div>
         </div>
         <div class="card-body">
@@ -217,8 +177,7 @@
             <table class="datatable datatable-bordered datatable-head-custom" id="kt_datatable">
                 <thead>
                 <tr>
-                    <th title="Field #1">Nama Jenis Baju</th>
-                    <th title="Field #2">Gambar Model</th>
+                    <th title="Field #1">Nama Merk</th>
                     <th title="Field #3">Aksi</th>
                     {{-- <th title="Field #4">Color</th>
                     <th title="Field #5">Deposit Paid</th>
@@ -230,82 +189,32 @@
                 <tbody>
 					@foreach($data as $row)
 					<tr>
-						<td>{!! $row->name !!}</td>
+						<td>{{$row->name}}</td>
 						<td>
-							<div class="image-input image-input-outline" id="kt_image_2">
-								<div class="image-input-wrapper" style="background-image: url(media/upload/shirt/{{$row->image}}_front.png)"></div>
-							</div>
-							&nbsp;
-							<div class="image-input image-input-outline" id="kt_image_2">
-								<div class="image-input-wrapper" style="background-image: url(media/upload/shirt/{{$row->image}}_back.png)"></div>
-							</div>
-						</td>
-						<td>
-							{{-- <a href="#" class="btn btn-primary"><i class="fa fa-edit"></i></a> --}}
-							<!--begin::Button-->
-
 							<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#EditData-{{$row->id}}">
 								<i class="fa fa-edit"></i>
 							</button>
 
-							<a href="{{Route('delete_clothes', $row->id)}}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+							<a href="{{Route('delete_merks', $row->id)}}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
 						</td>
 					</tr>
 
+					<!-- Modal-->
 					<div class="modal fade" id="EditData-{{$row->id}}" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-						<div class="modal-dialog modal-lg" role="document">
+						<div class="modal-dialog" role="document">
 							<div class="modal-content">
 								<div class="modal-header">
-									<h5 class="modal-title" id="exampleModalLabel">Tambah Jenis Baju</h5>
+									<h5 class="modal-title" id="exampleModalLabel">Edit Merk</h5>
 									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 										<i aria-hidden="true" class="ki ki-close"></i>
 									</button>
 								</div>
 								<div class="modal-body">
-									<form method="post" enctype="multipart/form-data" action="{{Route('update_clothes', $row->id)}}">
+									<form id="my-form" method="post" action="{{Route('update_merks', $row->id)}}">
 										@csrf
-										
-										<div class="form-group" >
-											<label>Nama Tipe Baju</label>
-											<input type="text" class="form-control" name="name_type" value="{{ $row->name }}"/>
-										</div>
-										
-	
-										<div class="form-group row">
-											<div class="col-lg-6 text-center">
-												<label>Tampilan Depan Baju</label>
-												<div></div>
-												<div class="image-input image-input-outline" id="kt_image_edit_{{$row->id}}_1">
-													<div class="image-input-wrapper" style="background-image: url(media/upload/shirt/{{$row->image}}_front.png)"></div>
-												   
-													<label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="Change avatar">
-													 <i class="fa fa-pen icon-sm text-muted"></i>
-													 <input type="file" name="img_front" accept=".png, .jpg, .jpeg"/>
-													 <input type="hidden" name="img_front_remove"/>
-													</label>
-												   
-													<span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="cancel" data-toggle="tooltip" title="Cancel avatar">
-													 <i class="ki ki-bold-close icon-xs text-muted"></i>
-													</span>
-												</div>
-											</div>
-											<div class="col-lg-6 text-center">
-												<label>Tampilan Belakang Baju</label>
-												<div></div>
-												<div class="image-input image-input-outline" id="kt_image_edit_{{$row->id}}_2">
-													<div class="image-input-wrapper" style="background-image: url(media/upload/shirt/{{$row->image}}_back.png)"></div>
-												   
-													<label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="Change avatar">
-													 <i class="fa fa-pen icon-sm text-muted"></i>
-													 <input type="file" name="img_back" accept=".png, .jpg, .jpeg"/>
-													 <input type="hidden" name="img_back_remove"/>
-													</label>
-												   
-													<span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="cancel" data-toggle="tooltip" title="Cancel avatar">
-													 <i class="ki ki-bold-close icon-xs text-muted"></i>
-													</span>
-												</div>
-											</div>
+										<div class="form-group">
+											<label>Nama Merk</label>
+											<input type="text" class="form-control" name="name_merks" value="{{$row->name}}"/>
 										</div>
 
 										<button type="submit" name="button" class="btn btn-success btn-block">Update</button>
@@ -313,13 +222,23 @@
 								</div>
 								{{-- <div class="modal-footer">
 									<button type="button" class="btn btn-light-primary font-weight-bold" data-dismiss="modal">Close</button>
-									<button type="submit" class="btn btn-primary font-weight-bold">Save changes</button>
+									<button type="submit" form="my-form" class="btn btn-primary font-weight-bold">Save changes</button>
 								</div> --}}
 							</div>
 						</div>
 					</div>
-
 					@endforeach
+                {{-- <tr>
+                    <td>0006-3629</td>
+                    <td>Land Rover</td>
+                    <td>Range Rover</td>
+                    <td>Orange</td>
+                    <td>$22672.60</td>
+                    <td>2016-11-28</td>
+                    <td align="right">3</td>
+                    <td align="right">3</td>
+                </tr> --}}
+                
                 </tbody>
             </table>
             <!--end: Datatable-->
@@ -335,16 +254,5 @@
 
 {{-- Scripts Section --}}
 @section('scripts')
-	<script src="{{ asset('js/pages/crud/ktdatatable/base/html-table.js') }}" type="text/javascript"></script>
-	
-	<script>
-		var avatar1 = new KTImageInput('kt_image_1');
-		var avatar2 = new KTImageInput('kt_image_2');
-		// var avatar3 = new KTImageInput('kt_image_edit_1');
-		// var avatar4 = new KTImageInput('kt_image_edit_2');
-		@foreach($data as $js)
-			var avatar_{{$js->id}} = new KTImageInput('kt_image_edit_{{$js->id}}_1');
-			var avatar_{{$js->id}} = new KTImageInput('kt_image_edit_{{$js->id}}_2');
-		@endforeach
-	</script>
+    <script src="{{ asset('js/pages/crud/ktdatatable/base/html-table.js') }}" type="text/javascript"></script>
 @endsection

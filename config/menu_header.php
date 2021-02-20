@@ -4,12 +4,19 @@ return [
 
     'items' => [
         [],
-        // [
-        //     'title' => 'Dashboard',
-        //     'root' => true,
-        //     'page' => '/',
-        //     'new-tab' => false,
-        // ],
+        [
+            'title' => 'Dashboard',
+            'root' => true,
+            'page' => 'dashboard',
+            'new-tab' => false,
+		],
+		
+		[
+            'title' => 'Support',
+            'root' => true,
+            'page' => '#',
+            'new-tab' => false,
+        ],
 
         // [
         //     'title' => 'Features',

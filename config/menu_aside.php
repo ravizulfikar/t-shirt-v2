@@ -8,54 +8,131 @@ return [
             'title' => 'Dashboard',
             'root' => true,
             'icon' => 'media/svg/icons/Design/Layers.svg', // or can be 'flaticon-home' or any flaticon-*
-            'page' => '/home',
+            'page' => 'dashboard',
             'new-tab' => false,
-        ],
-
-        [
-            'title' => 'Order',
-            'root' => true,
-            'icon' => 'media/svg/icons/Shopping/Cart2.svg', // or can be 'flaticon-home' or any flaticon-*
-            'page' => '/order',
-            'new-tab' => false,
-        ],
-
-        [
-            'title' => 'Master Customs',
+		],
+		
+		[
+            'title' => 'Master Data',
             'icon' => 'media/svg/icons/Shopping/Bag1.svg',
             'bullet' => 'dot',
             'root' => true,
             'submenu' => [
-                [
-                    'title' => 'Type T-Shirt',
+				[
+                    'title' => 'Product',
                     'bullet' => 'dot',
-                    'page' => '/clothes',
+                    'page' => 'product',
                 ],
                 [
-                    'title' => 'Colors',
+                    'title' => 'Cabang',
                     'bullet' => 'dot',
-                    'page' => '/colors',
+                    'page' => 'branch',
                 ],
                 [
-                    'title' => 'Images Template',
+                    'title' => 'Price List',
                     'bullet' => 'dot',
-                    'page' => '/templates',
+                    'page' => 'price-list',
                 ],
-                // [
-                //     'title' => 'Prices',
-                //     'bullet' => 'dot',
-                //     'page' => '/order',
-                // ],
+                [
+                    'title' => 'Stock',
+                    'bullet' => 'dot',
+                    'page' => 'stock',
+                ],
             ]
-        ],
-
-        [
-            'title' => 'Catalogs',
+		],
+		
+		[
+            'title' => 'Transaction',
+            'icon' => 'media/svg/icons/Shopping/Bag1.svg',
+            'bullet' => 'dot',
             'root' => true,
-            'icon' => 'media/svg/icons/Clothes/T-Shirt.svg', // or can be 'flaticon-home' or any flaticon-*
-            'page' => '/catalogs',
+            'submenu' => [
+				[
+                    'title' => 'Kasir',
+                    'bullet' => 'dot',
+                    'page' => 'cashier',
+                ],
+                [
+                    'title' => 'Sales Order',
+                    'bullet' => 'dot',
+                    'page' => 'sales-order',
+                ],
+                [
+                    'title' => 'Invoice',
+                    'bullet' => 'dot',
+                    'page' => 'invoice',
+                ],
+            ]
+		],
+		
+		[
+            'title' => 'Inventory',
+            'root' => true,
+            'icon' => 'media/svg/icons/Shopping/Cart2.svg', // or can be 'flaticon-home' or any flaticon-*
+            'page' => 'inventory',
             'new-tab' => false,
-        ],
+		],
+
+		[
+            'title' => 'Request',
+            'root' => true,
+            'icon' => 'media/svg/icons/Shopping/Cart2.svg', // or can be 'flaticon-home' or any flaticon-*
+            'page' => 'request',
+            'new-tab' => false,
+		],
+
+        // [
+        //     'title' => 'Order',
+        //     'root' => true,
+        //     'icon' => 'media/svg/icons/Shopping/Cart2.svg', // or can be 'flaticon-home' or any flaticon-*
+        //     'page' => 'order',
+        //     'new-tab' => false,
+		// ],
+		
+		
+
+        // [
+        //     'title' => 'Master Customs',
+        //     'icon' => 'media/svg/icons/Shopping/Bag1.svg',
+        //     'bullet' => 'dot',
+        //     'root' => true,
+        //     'submenu' => [
+		// 		[
+        //             'title' => 'Merk',
+        //             'bullet' => 'dot',
+        //             'page' => 'merks',
+        //         ],
+        //         [
+        //             'title' => 'Type T-Shirt',
+        //             'bullet' => 'dot',
+        //             'page' => 'clothes',
+        //         ],
+        //         [
+        //             'title' => 'Colors',
+        //             'bullet' => 'dot',
+        //             'page' => 'colors',
+        //         ],
+        //         [
+        //             'title' => 'Images Template',
+        //             'bullet' => 'dot',
+        //             'page' => 'templates',
+        //         ],
+        //         // [
+        //         //     'title' => 'Prices',
+        //         //     'bullet' => 'dot',
+        //         //     'page' => '/order',
+        //         // ],
+        //     ]
+        // ],
+
+        // [
+        //     'title' => 'Catalogs',
+        //     'root' => true,
+        //     'icon' => 'media/svg/icons/Clothes/T-Shirt.svg', // or can be 'flaticon-home' or any flaticon-*
+        //     'page' => 'catalogs',
+        //     'new-tab' => false,
+		// ],
+
 
         // Custom
         // [

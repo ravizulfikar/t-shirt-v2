@@ -67,7 +67,7 @@ class Menu
                 $item_class .= ' menu-item-open menu-item-here'; // m-menu__item--active
             } elseif (self::isActiveVerMenuItem($item, request()->path())) {
                 $item_class .= ' menu-item-active';
-            }
+			}
 
             echo '<li class="menu-item ' . $item_class . '" aria-haspopup="true" ' . $item_attr . '>';
             if (isset($item['parent'])) {

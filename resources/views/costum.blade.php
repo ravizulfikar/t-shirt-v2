@@ -157,7 +157,73 @@
       </div>
     </div>
   </div> --}}
+  <div class="site-selection">
+    <div class="container">
+		<div class="page-header">
+			<h1>Simulator T-Shirt Custom</h1>
+		</div>
 
+		<div class="row"> 
+
+			<ul class="nav flex-column nav-pills" id="myTab" role="tablist" aria-orientation="vertical">
+				<li class="nav-item">
+				  <a class="nav-link" id="tabb" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link" id="tabb" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link" id="tabb" data-toggle="tab" href="#messages" role="tab" aria-controls="messages" aria-selected="false">Messages</a>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link" id="tabb" data-toggle="tab" href="#settings" role="tab" aria-controls="settings" aria-selected="false">Settings</a>
+				</li>
+			  </ul>
+			  
+			  <div class="tab-content">
+				<div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">.s..</div>
+				<div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">.a.s.</div>
+				<div class="tab-pane" id="messages" role="tabpanel" aria-labelledby="messages-tab">..SD.</div>
+				<div class="tab-pane" id="settings" role="tabpanel" aria-labelledby="settings-tab">.23..</div>
+			  </div>
+			  
+			  <script>
+				$(function () {
+					
+					// tablinks = document.getElementsByClassName("nav-link");
+					
+					$('.nav-link').click(function(){
+						var v = document.getElementById("tabb");
+						$(this).tab('show');
+						v.className += " active"; 
+					})
+				})
+
+				function openCity(evt, cityName) {
+					// Declare all variables
+					var i, tabcontent, tablinks;
+
+					// Get all elements with class="tabcontent" and hide them
+					tabcontent = document.getElementsByClassName("tab-pane");
+					for (i = 0; i < tabcontent.length; i++) {
+					tabcontent[i].style.display = "none";
+					}
+
+					// Get all elements with class="tablinks" and remove the class "active"
+					tablinks = document.getElementsByClassName("nav-link");
+					for (i = 0; i < tablinks.length; i++) {
+					tablinks[i].className = tablinks[i].className.replace(" active", "");
+					}
+
+					// Show the current tab, and add an "active" class to the button that opened the tab
+					document.getElementById(cityName).style.display = "block";
+					evt.currentTarget.className += " active";
+				}
+			  </script>
+
+		</div>
+	</div>
+  </div>
 
   <div class="site-selection">
     <div class="container">
@@ -396,6 +462,13 @@
 @push('scripts')
 
 <script>
+	$('#myTab a').on('click', function (e) {
+		e.preventDefault()
+		$(this).tab('show')
+	})
+</script>
+
+<script>
     $(document).ready(function(){
     $("#tshirttype").change(function(){
     $("img[name=tshirtview]").attr("src",$(this).val());
@@ -557,6 +630,31 @@
    $('#btnpesan').click(function(){
       window.location.href = 'cart.html';
    });
+
+   ////////////////////////////////////////////////////
+
+//    function openNAV(evt, cityName) {
+//     // Declare all variables
+//     var i, tabcontent, tablinks;
+
+//     // Get all elements with class="tabcontent" and hide them
+//     tabcontent = document.getElementsByClassName("tab-pane");
+//     for (i = 0; i < tabcontent.length; i++) {
+//       tabcontent[i].style.display = "none";
+//     }
+
+//     // Get all elements with class="tablinks" and remove the class "active"
+//     tablinks = document.getElementsByClassName("nav-link");
+//     for (i = 0; i < tablinks.length; i++) {
+//       tablinks[i].className = tablinks[i].className.replace("show active", "");
+//     }
+
+//     // Show the current tab, and add an "active" class to the button that opened the tab
+//     document.getElementById(cityName).style.display = "block";
+//     evt.currentTarget.className += "show active";
+//   }
+
+  ////////////////////////////////////////////////////
 </script>
 {{-- <script src="js/bootstrap.min.js"></script>   --}}
 <script type="text/javascript" src="{{asset('extension/js/tshirtEditor.js')}}"></script>

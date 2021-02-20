@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Colors;
+use App\Merks;
 
-class ColorsController extends Controller
+class MerksController extends Controller
 {
     public function __construct()
     {
@@ -17,36 +17,34 @@ class ColorsController extends Controller
         // $page_title = 'Type of CLothes';
 		// $page_description = '| Type of Clothes in your store';
 		
-		$data = Colors::all();
+		$data = Merks::all();
 
-        return view('pages.colors.main', compact('data'));
+        return view('pages.merks.main', compact('data'));
 	}
 	
 	public function store(Request $req)
     {
-		Colors::create([
-			'name' 		=> $req->name_colors,
-			'color' 	=> $req->hexcode,
+		Merks::create([
+			'name' 		=> $req->name_merks,
 		]);
  
-		return redirect(route('colors'));
+		return redirect(route('merks'));
 	}
 
 	public function update(Request $req, $id)
     {
-		$data = Colors::find($id);
+		$data = Merks::find($id);
 
-		$data->name 	= $req->name_colors;
-		$data->color 	= $req->hexcode;
+		$data->name 	= $req->name_merks;
 		$data->save();
 
-		return redirect(route('colors'));
+		return redirect(route('merks'));
 	}
 
 	public function destroy($id)
     {
-		$data = Colors::find($id);
+		$data = Merks::find($id);
 		$data->delete();
-		return redirect(route('colors'));
+		return redirect(route('merks'));
 	}
 }

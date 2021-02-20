@@ -62,11 +62,9 @@
         <nav class="site-navigation text-right text-md-center" role="navigation">
           <ul class="site-menu js-clone-nav d-none d-lg-block">
             <li class="active"> 
-
-              <li><a href="{{route('beranda')}}">Home</a></li>
-            
-              <li><a href="{{route('products')}}">Product</a></li>
-              <li><a href="{{route('costums')}}">Custom Design</a></li>
+              <li class="{{ (request()->is('/')) ? 'active' : '' }}"><a href="{{route('beranda')}}">Home</a></li>
+              <li class="{{ (request()->is('product')) ? 'active' : '' }}"><a href="{{route('products')}}">Product</a></li>
+              <li class="{{ (request()->is('costum')) ? 'active' : '' }}"><a href="{{route('costums')}}">Custom Design</a></li>
               {{-- <li><a href="contact.html">Contact</a></li>  --}}
           </ul>
         </nav>
